@@ -45,14 +45,14 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown">KÝ TÚC XÁ</a>
                                 <ul class="dropdown-menu menumarchil">
                                     <li><a href="#">Giới thiệu Ký túc xá</a></li>
-                                    <li><a href="#">Danh sách cán bộ</a></li>
+                                    <li><a href="#">Tổ Chức Sinh Viên</a></li>
                                     <li><a href="#">Thông tin phòng</a></li>                                    
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">SINH VIÊN</a>
                                 <ul class="dropdown-menu menumarchil">
-                                        <li><a href="#">Đăng nhập</a></li>
+                                        <li><a href="#">Đăng Ký Online</a></li>
                                     <li><a href="#">Cá nhân</a></li>
                                     <li>
                                         <a href="#">
@@ -179,11 +179,11 @@
                          </tr>
                       </tbody>
                    </table>
-                   <table align="center" width = "100%" cellspacing="0px" style="border: 1px solid black;" cellpadding="3px;">
+                   <table align="center" width = "100%" cellspacing="0px" style="border: 1px solid black;margin-top:10px;" cellpadding="3px;">
                       <tbody>
                          <tr>
                            <td>
-                             <p style="font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#ff0000"><strong>Những lưu ý cần biết khi thực hiện  đăng ký lưu trú qua mạng</strong>:</p>
+                             <p style="font-family:Arial, Helvetica, sans-serif; font-size:13px; color:blue; margin-top: 10px; margin-left: 10px;"><strong>Những lưu ý cần biết khi thực hiện  đăng ký lưu trú qua mạng</strong>:</p>
                              <ol start="1" type="1">
                              <li>Sinh viên phải nhập thông tin đầy đủ, chính xác theo yêu cầu và phải chịu trách nhiệm trước thông tin do mình nhập vào, sau khi đăng ký thành công, những sinh viên có thông tin không chính xác mặc nhiên  sẽ mất quyền ưu tiên được xét. 
                             </li>
@@ -193,11 +193,24 @@
                              <li>Nếu có thông tin sai sót cần sửa đổi hoặc thắc mắc xin vui lòng liên hệ trực tiếp theo địa chỉ: </li>
 		                     </ol>
 		
-        <p><b>Ký túc xá Bách Khoa</b><br><b>Địa chỉ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 497  Hòa Hảo, P7, Q10, Tp Hồ Chí Minh</b><br><b>Điện thoại&nbsp;&nbsp;: &nbsp;08.39573946</b><br><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <a href="mailto:ktx@hcmut.edu.vn">ktx@hcmut.edu.vn</a></b></p>		
-		</td>
+                              <p style="margin-left: 20px;"><b>Ký túc xá Bách Khoa</b><br><b>Địa chỉ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 497  Hòa Hảo, P7, Q10, Tp Hồ Chí Minh</b><br><b>Điện thoại&nbsp;&nbsp;: &nbsp;08.39573946</b><br><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <a href="mailto:ktx@hcmut.edu.vn">ktx@hcmut.edu.vn</a></b></p>		
+		                   </td>
                          </tr>
                       </tbody>
                    </table>
+                   <table align="center" width="80%">
+				    <tbody><tr>
+				        <td align="left">
+				        <input style="margin-top: 10px;" id="confirm_thongbao" name="confirm_thongbao" type="checkbox" value="1"> 
+				        Tôi đã đọc và đồng ý các qui định trên, chọn tiếp tục đăng ký.
+				        </td>
+				    </tr>
+				    <tr>
+				   	  <td align="center">
+				       	<input style="margin-top: 5px;" type="submit" class="button" id="button" value="Đăng ký" onclick="return checkValidate();">
+				   	  </td>
+				    </tr>
+				    </tbody></table>
                </fieldset>
             </form>
      </div>   
@@ -412,9 +425,6 @@
 
     <div class="clearfix"></div>
     <div id="maincontent-section2">
-        <div class="listbox listbox-main">
-            
-        </div>
 
         <div class="listbox listbox-sidebar">
 
@@ -777,10 +787,7 @@
         function TimKiem() {
             window.location.href = "#" + txtTimKiem.value;
         }
-    </script>
-
-                                
-                            
-    </div>
+    </script>                           
+</div>
 </body>
 </html>
