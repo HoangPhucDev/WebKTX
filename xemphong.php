@@ -1,8 +1,13 @@
+<?php
+include_once './class/Model.php';             
+$data = new Model();
+$Khu = $data->get_list("select * FROM `Khu`");
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>K&#253; t&#250;c x&#225; Đại học B&#225;ch khoa</title>
+    <title>KÝ TÚC XÁ ĐẠI HỌC KỸ THUẬT - CÔNG NGHỆ CẦN THƠ</title>
     <link rel="shortcut icon" href="./Images/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -82,92 +87,58 @@
                     <center><h3>THÔNG TIN PHÒNG</h3></center>
                     </div>
             </div>
-
             <div class="clearfix"></div>
             <br>
             <div class="container">
+            <!--Bất đầu lập 1 khu -->
+            <?php foreach ($Khu as $valueKhu): ?>
             <div class="row">
                     <div class="panel panel-default">
                       <div class="panel-body">
-                        Khu 1
+                        <?php
+                           echo $valueKhu["TEN_KHU"];
+                        ?>
                       </div>
                       <div class="panel-footer">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <div class="huge">Phòng 101</div>
-                                                <span class="badge">7/8</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" data-toggle="modal" data-target="#myModal">
-                                        <div class="panel-footer">
-                                            <span class="pull-left">Chi Tiết</span>
-                                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="panel panel-danger">
-                                    <div class="panel-heading">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <div class="huge">Phòng 102</div>
-                                                <span class="badge">5/8</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" data-toggle="modal" data-target="#myModal">
-                                        <div class="panel-footer">
-                                            <span class="pull-left">Chi Tiết</span>
-                                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                        <!--Bất đầu lập 1 phòng -->
+                        <?php
+                            $Phong = $data->get_list("SELECT * FROM `phong` WHERE `MA_KHU`=".$valueKhu["MA_KHU"]);
+                            foreach ($Phong as $valuePhong):
+                        ?>
+                        <?php 
+                        $MaPhong = $valuePhong['MA_PHONG'];
+                        $TenPhong = $valuePhong['TEN_PHONG'];
+                        $GioiTinhPhong = $valuePhong['GIOI_TINH_PHONG'];
+                        $SucChua = $valuePhong['SUC_CHUA'];
+                        $SVTrongPhong = $data->get_row("
+                            SELECT COUNT(MA_ND) FROM `nguoi_dung` WHERE `MA_PHONG`=".$MaPhong." AND `TRANG_THAI_ND`=1");
+                         ?>
+                            <?php if($SucChua==$SVTrongPhong['COUNT(MA_ND)']): ?>
+                            <!--Nếu phòng đầy -->
                             <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-warning">
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
-                                                <i class="fa fa-female fa-2x"></i>
+                                            <?php for($i = 0 ;$i < $SucChua;$i++){
+                                                if($GioiTinhPhong==0){
+                                                    echo ($i<$SVTrongPhong['COUNT(MA_ND)'])?
+                                                    '<i class="fa male fa-2x"></i>':
+                                                    '<i class="fa fa-user-o fa-1x"></i>';
+                                                }else
+                                                {
+                                                    echo ($i<$SVTrongPhong['COUNT(MA_ND)'])?
+                                                    '<i class="fa fa-male fa-2x"></i>':
+                                                    '<i class="fa fa-user-o fa-1x"></i>';
+                                                }
+                                            }
+                                            ?>
                                             </div>
                                             <div class="col-xs-6 text-right">
-                                                <div class="huge">Phòng 103</div>
-                                                <span class="badge">8/8</span>
+                                                <div class="huge"><?php echo $TenPhong ?></div>
+                                                <span class="badge">
+                                                <?php echo $SVTrongPhong['COUNT(MA_ND)'].'/'.$SucChua; ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -180,53 +151,26 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="panel panel-warning">
-                                    <div class="panel-heading">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                                <i class="fa fa-male fa-2x"></i>
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <div class="huge">Phòng 104</div>
-                                                <span class="badge">8/8</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" data-toggle="modal" data-target="#myModal">
-                                        <div class="panel-footer">
-                                            <span class="pull-left">Chi Tiết</span>
-                                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            <?php continue; endif; ?>
 
+                            <?php if($GioiTinhPhong==0): ?>
+                            <!--Nếu phòng là nam -->
                             <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
+                                            <?php for($i = 0 ;$i < $SucChua;$i++){
+                                                echo ($i<$SVTrongPhong['COUNT(MA_ND)'])?
+                                                '<i class="fa fa-male fa-2x"></i>':
+                                                '<i class="fa fa-user-o fa-1x"></i>';
+                                            }
+                                            ?>
                                             </div>
                                             <div class="col-xs-6 text-right">
-                                                <div class="huge">Phòng 105</div>
-                                                <span class="badge">0/8</span>
+                                                <div class="huge"><?php echo $TenPhong ?></div>
+                                                <span class="badge">
+                                                <?php echo $SVTrongPhong['COUNT(MA_ND)'].'/'.$SucChua; ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -238,25 +182,27 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
+                             </div>
+                            <?php endif; ?>
 
+                            <?php if($GioiTinhPhong==1): ?>
+                            <!--Nếu phòng là nữ -->
                             <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-danger">
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
-                                                <i class="fa fa-user-o fa-1x"></i>
+                                            <?php for($i = 0 ;$i < $SucChua;$i++){
+                                                echo ($i<$SVTrongPhong['COUNT(MA_ND)'])?
+                                                '<i class="fa fa-female fa-2x"></i>':
+                                                '<i class="fa fa-user-o fa-1x"></i>';
+                                            }
+                                            ?>
                                             </div>
                                             <div class="col-xs-6 text-right">
-                                                <div class="huge">Phòng 106</div>
-                                                <span class="badge">0/8</span>
+                                                <div class="huge"><?php echo $TenPhong ?></div>
+                                                <span class="badge">
+                                                <?php echo $SVTrongPhong['COUNT(MA_ND)'].'/'.$SucChua; ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -268,41 +214,17 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
+                             </div>
+                            <?php endif; ?>
 
-
-
+                            <?php endforeach; ?>
+                            <!--Kết Thúc lập 1 phòng -->
                         </div>
                       </div>
                     </div>
             </div>
-                        <div class="row">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        Khu 2
-                      </div>
-                      <div class="panel-footer"></div>
-                    </div>
-            </div>
-                        <div class="row">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        Khu A
-                      </div>
-                      <div class="panel-footer"></div>
-                    </div>
-            </div>
-                        <div class="row">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        Khu B
-                      </div>
-                      <div class="panel-footer"></div>
-                    </div>
-            </div>
-            </div>
-                
-            
+            <?php endforeach; ?>
+            <!--Kết Thúc lập 1 Khu -->
         </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
