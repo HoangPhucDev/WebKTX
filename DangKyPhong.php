@@ -24,7 +24,7 @@
 				echo 'Giới Tính Không Phù Hợp';
 			}else
 			{
-				$dataupdate = array('MA_PHONG'=>''.$MaPhong);
+				$dataupdate = array('MA_PHONG'=>''.$MaPhong,'TRANG_THAI_ND'=>''.'0');
 				echo $data->update('nguoi_dung',$dataupdate,'`MA_ND` = "'.$MSSV.'"')==1?'Đăng Ký Thành Công':'Đăng Ký Thất Bại';
 			}
 			

@@ -1,4 +1,69 @@
 <?php include 'general/header.php';?>
+<style>
+    .jssorb05 {
+        position: absolute;
+    }
+
+        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: url('./Images/b05.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .jssorb05 div {
+            background-position: -7px -7px;
+        }
+
+            .jssorb05 div:hover, .jssorb05 .av:hover {
+                background-position: -37px -7px;
+            }
+
+        .jssorb05 .av {
+            background-position: -67px -7px;
+        }
+
+        .jssorb05 .dn, .jssorb05 .dn:hover {
+            background-position: -97px -7px;
+        }
+
+    .jssora22l, .jssora22r {
+        display: block;
+        position: absolute;
+        width: 40px;
+        height: 58px;
+        cursor: pointer;
+        background: url('./Images/a22.png') center center no-repeat;
+        overflow: hidden;
+    }
+
+    .jssora22l {
+        background-position: -10px -31px;
+    }
+
+    .jssora22r {
+        background-position: -70px -31px;
+    }
+
+    .jssora22l:hover {
+        background-position: -130px -31px;
+    }
+
+    .jssora22r:hover {
+        background-position: -190px -31px;
+    }
+
+    .jssora22l.jssora22ldn {
+        background-position: -250px -31px;
+    }
+
+    .jssora22r.jssora22rdn {
+        background-position: -310px -31px;
+    }
+</style>
+<div class="clearfix"></div>
 <div id="maincontent">
     <div id="maincontent-section1">
     <div class="listbox listbox-main news-box">
@@ -14,7 +79,7 @@
                                 <a href="#" target="_blank">
                                     <img data-u="image" width="810" height="400" src="./Images/2.jpg" />
                                 </a>
-                            </div>
+                            </div> 
                             <div data-p="225.00" style="display: none;">
                                 <a href="#" target="_blank">
                                     <img data-u="image" width="810" height="400" src="./Images/5.jpg" />

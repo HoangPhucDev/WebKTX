@@ -1,6 +1,6 @@
 <?php 
     include 'class/Model.php';
-    $data = new Model();  
+    $data = new Model();   
     @session_start();
     $fullname = "";
     $html = '<div class="listbox listbox-sidebar notify-box">
@@ -25,7 +25,7 @@
                     </div>
         </div>';
    if (isset($_SESSION['username'])){
-       $row1 = $data->get_row("SELECT * FROM `nguoi_dung` WHERE `MA_ND`=".$_SESSION['username']);
+       $row1 = $data->get_row('SELECT * FROM `nguoi_dung` WHERE `MA_ND`="'.$_SESSION['username'].'"');
        $fullname = $row1['TEN_ND'];
         $html = '<div class="listbox listbox-sidebar notify-box">
                   <div class="listbox-title" style="background-color: #337ab7">
@@ -40,7 +40,7 @@
                                 <label>Xin Chào</label>
                                 <p>'.$fullname.'</p>
                                 <br>
-                                <a href="logout.php"><input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Đăng Xuât"></a>
+                                <a href="logout.php" class="btn btn-lg btn-primary btn-block">Đăng Xuât</a>
                                 <br>
                             </form>
     

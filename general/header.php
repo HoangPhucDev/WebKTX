@@ -50,7 +50,6 @@
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">SINH VIÊN</a>
                                 <ul class="dropdown-menu menumarchil">
-                                        <li><a href="huongdan.html">Hướng dẫn đăng ký</a></li>
                                         <li><a href="huongdan.php">Hướng dẫn đăng ký</a></li>
                                         <li><a href="dangky.php">Đăng ký online</a></li>
                                 </ul>
@@ -68,68 +67,4 @@
             </div>
         </div>
         
-<style>
-    .jssorb05 {
-        position: absolute;
-    }
 
-        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: url('./Images/b05.png') no-repeat;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .jssorb05 div {
-            background-position: -7px -7px;
-        }
-
-            .jssorb05 div:hover, .jssorb05 .av:hover {
-                background-position: -37px -7px;
-            }
-
-        .jssorb05 .av {
-            background-position: -67px -7px;
-        }
-
-        .jssorb05 .dn, .jssorb05 .dn:hover {
-            background-position: -97px -7px;
-        }
-
-    .jssora22l, .jssora22r {
-        display: block;
-        position: absolute;
-        width: 40px;
-        height: 58px;
-        cursor: pointer;
-        background: url('./Images/a22.png') center center no-repeat;
-        overflow: hidden;
-    }
-
-    .jssora22l {
-        background-position: -10px -31px;
-    }
-
-    .jssora22r {
-        background-position: -70px -31px;
-    }
-
-    .jssora22l:hover {
-        background-position: -130px -31px;
-    }
-
-    .jssora22r:hover {
-        background-position: -190px -31px;
-    }
-
-    .jssora22l.jssora22ldn {
-        background-position: -250px -31px;
-    }
-
-    .jssora22r.jssora22rdn {
-        background-position: -310px -31px;
-    }
-</style>
-<div class="clearfix"></div>
