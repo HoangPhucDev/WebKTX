@@ -18,7 +18,7 @@
         <div id="wrapper-header">
             <div id="header" class="container">
                 <div id="header-logo">
-                    <a href="index.html">
+                    <a href="index.php">
                         <div id="header-logo-img">
                         </div>
                         <div id="header-logo-infologo">
@@ -39,26 +39,26 @@
                     <div class="clearfix"></div>
                     <div id="header-nav-main">
                         <ul class="nav navbar-nav">
-                        <li><a href="index.html">TRANG CHỦ</a></li>
+                        <li><a href="index.php">TRANG CHỦ</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">KÝ TÚC XÁ</a>
                                 <ul class="dropdown-menu menumarchil">
-                                    <li><a href="gioithieu.html">Giới thiệu Ký túc xá</a></li>
-                                    <li><a href="tochuc.html">Tổ Chức Sinh Viên</a></li>                                    
+                                    <li><a href="gioithieu.php">Giới thiệu Ký túc xá</a></li>
+                                    <li><a href="tochuc.php">Tổ Chức Sinh Viên</a></li>                                    
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">SINH VIÊN</a>
                                 <ul class="dropdown-menu menumarchil">
-                                        <li><a href="huongdan.html">Hướng dẫn đăng ký</a></li>
-                                        <li><a href="dangky.html">Đăng ký online</a></li>
+                                        <li><a href="huongdan.php">Hướng dẫn đăng ký</a></li>
+                                        <li><a href="dangky.php">Đăng ký online</a></li>
                                 </ul>
                             </li>                            
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">Cơ Sở Vật Chất</a>
                                 <ul class="dropdown-menu menumarchil">
                                     <li><a href="xemphong.php">Thông Tin Phòng</a></li>
-                                    <li><a href="chitietphong.html">Chi Tiết Phòng Ở</a></li>
+                                    <li><a href="chitietphong.php">Chi Tiết Phòng Ở</a></li>
                                 </ul>
                             </li>
                         </ul>
