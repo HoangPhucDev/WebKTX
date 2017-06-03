@@ -1,7 +1,7 @@
 <?php 
     include 'class/Model.php';
     $data = new Model();
-    $user = isset($_POST['manguoidung'])?$_POST['manguoidung']:'';
+    $user = isset($_POST['nguoidung'])?$_POST['nguoidung']:'';
     $pass = isset($_POST['matkhau'])?$_POST['matkhau']:'';
     $password = md5($pass);
     $html = '<div class="listbox listbox-sidebar notify-box">
@@ -14,7 +14,7 @@
                     <div class="listbox-content" style="border-color: #337ab7;">
     
                             <form action="#" method="post"><br>
-                                <input type="text" name="manguoidung" class="form-control" placeholder="MSSV" required="" autofocus="" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><br>
+                                <input type="text" name="nguoidung" class="form-control" placeholder="MSSV" required="" autofocus="" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><br>
                                 <input type="password" name="matkhau" class="form-control" placeholder="Mật khẩu" required="" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"><br>
                                 <input type="checkbox" id="ghinho" name="matKhau">Ghi Nhớ
                                 <br>
@@ -27,7 +27,9 @@
             </div>';
     if (isset($_POST['submit'])){
         $sql = $data->get_row("SELECT * FROM `nguoi_dung` WHERE `MA_ND`= '$user' AND `MAT_KHAU` = '$password'");
-        if (isset($sql)){
+        $name = $sql['TEN_ND'];
+        if ($sql){
+            if ($name != null){
             $html =  '<div class="listbox listbox-sidebar notify-box">          
                   <div class="listbox-title" style="background-color: #337ab7">
                         <h4 style="width:100%">
@@ -36,15 +38,14 @@
                         </h4>
                       </div>
                     <div class="listbox-content" style="border-color: #337ab7;">
-                                <label style="margin-top:10px;">Sinh Viên:</label>
-                                <p>'.$sql['TEN_ND'].'</p><br>
-                                 <label>Email</label>
-                                 <p>'.$sql['TEN_ND'].'</p><br>
-                                <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Đăng Xuất">
+                                <label style="margin-top:10px;">Xin chào:</label>
+                                <p>'.$name.'</p><br>
+                                <a href="index.php"><input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Đăng Xuất"></a>
                                 <br>                      
                     </div>
             </div>
            </div>';
+            }
         }
     }
 ?>

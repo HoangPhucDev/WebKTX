@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>K&#253; t&#250;c x&#225; Đại học B&#225;ch khoa</title>
+    <title>KTX Đại học Kỹ Thuật Công Nghệ Cần Thơ</title>
     <link rel="shortcut icon" href="./Images/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">

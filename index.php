@@ -36,7 +36,7 @@
                     <center>
                         <div class="row" style="float: none;">
                                 <div class="col-sm-2" style="border-right:solid 1px silver">
-                                    <a href="/TrangChu/XemVanBan?idVanBanBieuMau=4" title="Ban h&#224;nh Quy chế học sinh, sinh vi&#234;n tr&#250; tại c&#225;c cơ sở gi&#225;o dục thuộc hệ thống gi&#225;o dục quốc d&#226;n" class="GhimLon">
+                                    <a href="" title="Ban h&#224;nh Quy chế học sinh, sinh vi&#234;n tr&#250; tại c&#225;c cơ sở gi&#225;o dục thuộc hệ thống gi&#225;o dục quốc d&#226;n" class="GhimLon">
                                             <img src="./Images/vanBan.png" style="height:100px;" alt="văn bản" />
                                         <span style="text-transform: uppercase; color: red; font-weight:bold">Ban h&#224;nh Quy chế học...</span>
                                     </a>
