@@ -39,7 +39,7 @@
                     <div class="clearfix"></div>
                     <div id="header-nav-main">
                         <ul class="nav navbar-nav">
-                        <li><a href="index.html">TRANG CHỦ</a></li>
+                        <li><a href="index.php">TRANG CHỦ</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">KÝ TÚC XÁ</a>
                                 <ul class="dropdown-menu menumarchil">
@@ -51,7 +51,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown">SINH VIÊN</a>
                                 <ul class="dropdown-menu menumarchil">
                                         <li><a href="huongdan.html">Hướng dẫn đăng ký</a></li>
-                                        <li><a href="dangky.html">Đăng ký online</a></li>
+                                        <li><a href="dangky.php">Đăng ký online</a></li>
                                 </ul>
                             </li>                            
                             <li class="dropdown">
