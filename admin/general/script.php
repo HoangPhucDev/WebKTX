@@ -16,14 +16,27 @@
 <!-- page script -->
 <script>
   $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
+    $("#example1").DataTable({
       "paging": true,
-      "lengthChange": false,
-      "searching": false,
+      "lengthChange": true,
+      "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false
+      "autoWidth": false,
+        "language": {
+            "lengthMenu": "Hiện _MENU_ dòng trong mõi trang",
+            "zeroRecords": "Không tìm thếy dữ liệu yêu cầu",
+            "info": "Trang thứ _PAGE_ trong _PAGES_ trang",
+            "infoEmpty": "Dữ liệu không có sẵn",
+            "infoFiltered": "(lọc từ _MAX_ dòng dữ liệu)",
+            "search": "Tìm:",
+            "paginate": {
+                "first":      "Đầu",
+                "last":       "Cuối",
+                "next":       "Tiếp",
+                "previous":   "Quay Lại"
+            }
+        }
     });
   });
 </script>
