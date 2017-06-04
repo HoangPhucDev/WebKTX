@@ -94,7 +94,7 @@ class Model {
         }  
         // Xóa kết quả khỏi bộ nhớ
         mysqli_free_result($result);
-    
+
         return $return;
     }
     

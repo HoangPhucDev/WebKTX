@@ -14,8 +14,6 @@
 		public function Sua($data, $where);
 		public function Xoa($where);
 		public function LayDanhSach();
-		public function LayChiTietTin();
-	
-		
+		public function LayChiTietTin($where);
 	}
  ?>
