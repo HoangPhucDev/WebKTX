@@ -20,6 +20,7 @@
                                 <tr>
                                     <th>Mã SV</th>
                                     <th>Tên SV</th>
+                                    <th>Email</th>
                                     <th>Giới Tính SV</th>
                                     <th>Tên Phòng</th>
                                     <th>Khu</th>
@@ -44,6 +45,7 @@
                                     <tr>
                                         <td><?php echo $row['MA_ND'];?></td>
                                         <td><?php echo $row['TEN_ND'];?></td>
+                                        <td><?php echo $row['EMAIL'];?></td>
                                         <td><?php echo $row['GIOI_TINH_ND']==0?'Nam':'Nữ'; ?></td>
                                         <td><?php echo $row['TEN_PHONG'];?></td>
                                         <td><?php echo $row['TEN_KHU'];?></td>
@@ -53,7 +55,7 @@
                                                                             WHERE `TRANG_THAI_ND` = 2 AND 
                                                                             nguoi_dung.MA_PHONG ='.$row['MA_PHONG'])['COUNT(MA_ND)'];?></td>
                                         <td id="nutduyet_<?php echo $row['MA_ND'];?>">
-                                            <a href="#" data-toggle="modal" data-target="#ThongBao" onclick="Duyet('<?php echo $row['MA_ND'];?>','1')">Duyệt</a> |
+                                            <a href="xacnhan.php?duyet=<?php echo $row['EMAIL']?>">Duyệt</a> |
                                             <a href="#" data-toggle="modal" data-target="#ThongBao" onclick="Duyet('<?php echo $row['MA_ND'];?>','0')">Không Duyệt</a> </td>
                                     </tr>
                                     <?php
