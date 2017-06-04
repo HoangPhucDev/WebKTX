@@ -20,7 +20,7 @@ if(isset($_POST['id']))
 					phong.MA_KHU = khu.MA_KHU and 
 					phong.MA_LOAI = loai_phong.MA_LOAI';
     $Phong = $data->get_list($sql);
-    $SVTrongPhong = $data->get_list('SELECT * FROM `nguoi_dung` WHERE MA_PHONG = '.$MaPhong);
+    $SVTrongPhong = $data->get_list('SELECT `MA_ND`,`TEN_ND`,`TRANG_THAI_ND` FROM `nguoi_dung` WHERE `TRANG_THAI_ND` >0 AND `MA_PHONG` = '.$MaPhong.' ORDER BY `nguoi_dung`.`TRANG_THAI_ND` DESC');
     $Phong[1] = $SVTrongPhong;
     //print_r($Phong);
    	echo json_encode($Phong);
