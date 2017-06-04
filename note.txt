@@ -1,1 +1,0 @@
-chưa fix khung đăng nhập giới thiệu, tổ chức. hướng dẫn (include slider,footer)
