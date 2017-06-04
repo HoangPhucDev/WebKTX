@@ -5,7 +5,122 @@ $Khu = $data->get_list("select * FROM `Khu`");
 
 ?>
 <?php include 'general/header.php';?>
-        
+
+<script>
+    function load_ajax(_id){
+        $.ajax({
+            url : "Phong.php",
+            type : "post",
+            dataType:"json",
+            data : {
+                id: _id
+            },
+            success : function (result){
+                var html = '';
+                $('#myModalLabel').text('Phòng '+result[0]['TEN_PHONG']);
+                $('#nutdangky').html('<button type="button" data-toggle="modal" data-target="#ThongBao" class="btn btn-info" data-dismiss="modal" onclick="DangKy('+result[0]['MA_PHONG']+')">Đăng Ký</button>');
+                if(result[0]['GIOI_TINH_PHONG']==0)
+                {
+                    result[0]['GIOI_TINH_PHONG'] = 'Nam';
+                }else{
+                    result[0]['GIOI_TINH_PHONG'] = 'Nữ';
+                }
+
+                switch (Number(result[0]['TRANG_THAI_PHONG']))
+                {
+                    case 0 : {
+                        result[0]['TRANG_THAI_PHONG']='Chưa Sử Dụng';
+                        break;
+                    }
+                    case 1 : {
+                        result[0]['TRANG_THAI_PHONG']='Đang Sử Dụng';
+                        break;
+                    }
+                    case 2 : {
+                        result[0]['TRANG_THAI_PHONG']='Đã Đầy';
+                        break;
+                    }
+                    default : {
+                        result[0]['TRANG_THAI_PHONG']='Chưa Sử Dụng';
+                    }
+                }
+
+                html +='<div class="row">'+
+                    '<div class=" col-md-6 col-sm-6 col-lg-6">'+
+                    '<strong><h4>THÔNG TIN PHÒNG</h3></strong><hr>'+
+                    '<b>Tên Phòng: </b>'+
+                    result[0]['TEN_PHONG']+'<br>'+
+                    '<b>Khu: </b>'+
+                    result[0]['TEN_KHU']+'<br>'+
+                    '<b>Loại: </b>'+
+                    result[0]['TEN_LOAI']+'<br>'+
+                    '<b>Số Giường: </b>'+
+                    result[0]['SUC_CHUA']+'<br>'+
+                    '<b>Phòng Cho: </b>'+
+                    result[0]['GIOI_TINH_PHONG']+'<br>'+
+                    '<b>Trạng Thái: </b>'+
+                    result[0]['TRANG_THAI_PHONG']+'<br>'+
+                    '<b>Giá : </b>'+
+                    result[0]['GIA_PHONG']+
+                    '</div>'+
+                    '<div class="col-md-6 col-sm-6 col-lg-6">'+
+                    '<strong><h4>DANH SÁCH SINH VIÊN</h3></strong>'+
+                    '<hr><table class="table"><thead><tr><th>Tên</th><th>MSSV</th><th>Trạng Thái</th></tr></thead><tbody>';
+                $.each (result[1], function (key, item){
+                    switch (Number(item['TRANG_THAI_ND']))
+                    {
+                        case 0 : {
+                            item['TRANG_THAI_ND'] = 'Không Thuê Phòng';
+                            break;
+                        }
+                        case 1 : {
+                            item['TRANG_THAI_ND'] = 'Chờ Xác Nhận';
+                            break;
+                        }
+                        case 2 : {
+                            item['TRANG_THAI_ND'] = 'Đang Thuê';
+                            break;
+                        }
+                        default : {
+                            item['TRANG_THAI_ND']='Không Thuê Phòng';
+                        }
+                    }
+                    html +='<tr>'+
+                        '<td>'+item['TEN_ND']+'</td>'+
+                        '<td>'+item['MA_ND']+'</td>'+
+                        '<td>'+item['TRANG_THAI_ND']+'</td></tr>';
+                });
+                html += '</tbody></table></div>'+
+                    '</div>';
+
+
+                $('#result').html(html);
+            }
+        });
+    }
+
+    function DangKy(_id){
+        MaNguoiDung = <?php echo @session_start(); echo isset($_SESSION['username'])?'"'.$_SESSION['username'].'"':'"Not Login"'; ?>;
+        if(MaNguoiDung!="Not Login")
+        {
+            $.ajax({
+                url : "DangKyPhong.php",
+                type : "post",
+                dataType:"text",
+                data : {
+                    MaPhong: _id,
+                    MSVV: MaNguoiDung
+                },
+                success : function (result){
+                    $('#resultThongBao').html('<h4>'+result+'</h4>');
+                    setTimeout("location.reload(true);", 2000);
+                }
+            });
+        }else{
+            $('#resultThongBao').html('<h4>Vui Lòng Đăng Nhập</h4>');
+        }
+    }
+</script>
 
         <div class="clearfix"></div>
 
@@ -333,7 +448,8 @@ $Khu = $data->get_list("select * FROM `Khu`");
               </div>
             </div>
           </div>
-        </div>      
+        </div>
+
     <script src="./Content/Script/jquery.bootstrap.newsbox.min.js"></script>
     <script src="./Content/Script/jssor.slider.mini.js"></script>
     <script src="./Content/Script/bootstrap.min.js"></script>
@@ -477,121 +593,8 @@ $Khu = $data->get_list("select * FROM `Khu`");
         }
 
 
-        function load_ajax(_id){
-                $.ajax({
-                    url : "Phong.php",
-                    type : "post",
-                    dataType:"json",
-                    data : {
-                         id: _id
-                    },
-                    success : function (result){
-                        var html = '';
-                        $('#myModalLabel').text('Phòng '+result[0]['TEN_PHONG']);
-                        $('#nutdangky').html('<button type="button" data-toggle="modal" data-target="#ThongBao" class="btn btn-info" data-dismiss="modal" onclick="DangKy('+result[0]['MA_PHONG']+')">Đăng Ký</button>');
-                            if(result[0]['GIOI_TINH_PHONG']==0)
-                            {
-                                result[0]['GIOI_TINH_PHONG'] = 'Nam';
-                            }else{
-                                result[0]['GIOI_TINH_PHONG'] = 'Nữ';
-                            }
-
-                            switch (Number(result[0]['TRANG_THAI_PHONG']))
-                            {
-                                case 0 : {
-                                    result[0]['TRANG_THAI_PHONG']='Chưa Sử Dụng';
-                                    break;
-                                }
-                                case 1 : {
-                                    result[0]['TRANG_THAI_PHONG']='Đang Sử Dụng';
-                                    break;
-                                }
-                                case 2 : {
-                                    result[0]['TRANG_THAI_PHONG']='Đã Đầy';
-                                    break;
-                                }
-                                default : {
-                                    result[0]['TRANG_THAI_PHONG']='Chưa Sử Dụng';
-                                }
-                            }                            
-
-                         html +='<div class="row">'+
-            '<div class=" col-md-6 col-sm-6 col-lg-6">'+
-            '<strong><h4>THÔNG TIN PHÒNG</h3></strong><hr>'+
-                '<b>Tên Phòng: </b>'+
-                    result[0]['TEN_PHONG']+'<br>'+
-                '<b>Khu: </b>'+
-                    result[0]['TEN_KHU']+'<br>'+
-                '<b>Loại: </b>'+
-                    result[0]['TEN_LOAI']+'<br>'+
-                '<b>Số Giường: </b>'+
-                    result[0]['SUC_CHUA']+'<br>'+
-                '<b>Phòng Cho: </b>'+
-                    result[0]['GIOI_TINH_PHONG']+'<br>'+
-                '<b>Trạng Thái: </b>'+
-                    result[0]['TRANG_THAI_PHONG']+'<br>'+
-                '<b>Giá : </b>'+
-                    result[0]['GIA_PHONG']+
-        '</div>'+
-        '<div class="col-md-6 col-sm-6 col-lg-6">'+
-            '<strong><h4>DANH SÁCH SINH VIÊN</h3></strong>'+
-            '<hr><table class="table"><thead><tr><th>Tên</th><th>MSSV</th><th>Trạng Thái</th></tr></thead><tbody>';
-            $.each (result[1], function (key, item){
-                switch (Number(item['TRANG_THAI_ND']))
-                {
-                    case 0 : {
-                        item['TRANG_THAI_ND'] = 'Không Thuê Phòng';
-                        break;
-                    }
-                    case 1 : {
-                        item['TRANG_THAI_ND'] = 'Chờ Xác Nhận';
-                        break;
-                    }
-                    case 2 : {
-                        item['TRANG_THAI_ND'] = 'Đang Thuê';
-                        break;
-                    }
-                    default : {
-                        item['TRANG_THAI_ND']='Không Thuê Phòng';
-                    }
-                }
-             html +='<tr>'+
-                '<td>'+item['TEN_ND']+'</td>'+
-                '<td>'+item['MA_ND']+'</td>'+
-                '<td>'+item['TRANG_THAI_ND']+'</td></tr>';
-            });
-       html += '</tbody></table></div>'+
-    '</div>';
-                        
-
-                        $('#result').html(html);
-                    }
-                });
-        }
-
-        function DangKy(_id){
-            MaNguoiDung = <?php echo @session_start(); echo isset($_SESSION['username'])?'"'.$_SESSION['username'].'"':'"Not Login"'; ?>;
-            if(MaNguoiDung!="Not Login")
-            {
-            $.ajax({
-                    url : "DangKyPhong.php",
-                    type : "post",
-                    dataType:"text",
-                    data : {
-                         MaPhong: _id,
-                         MSVV: MaNguoiDung
-                    },
-                    success : function (result){
-                        $('#resultThongBao').html('<h4>'+result+'</h4>');
-                        setTimeout("location.reload(true);", 2000);
-                    }
-                    });
-            }else{
-                $('#resultThongBao').html('<h4>Vui Lòng Đăng Nhập</h4>');
-            }
-        }
     </script>
-        
+
     </div>
 </body>
 </html>

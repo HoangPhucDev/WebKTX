@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <meta content='1594821870830928' property='fb:app_id' />
-    <script src="./Content/Script/jquery-1.9.1.min.js"></script>
     <link href="./Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./Content/css/normalize.css" rel="stylesheet" />
     <link href="./Content/css/styleTrangSinhVien.css" rel="stylesheet" />
     <link href="./Content/css/font-awesome.min.css" rel="stylesheet" />
     <link href="./Content/css/jquery.mmenu.all.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
     <div id="page">
@@ -22,7 +22,7 @@
                         <div id="header-logo-img">
                         </div>
                         <div id="header-logo-infologo">
-                            <h4>KÝ TÚC XÁ ĐẠI HỌC KỸ THUẬT - CÔNG NGHỆ CẦN THƠ</h3>
+                            <h4>KÝ TÚC XÁ ĐẠI HỌC KỸ THUẬT - CÔNG NGHỆ CẦN THƠ</h4>
                             <p>Dormitory of Can Tho University of Technology</p>
                         </div>
                     </a>
