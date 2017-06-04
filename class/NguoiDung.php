@@ -44,7 +44,7 @@
           return $rs;
       }
       public function LayChiTietTin($where){
-          $rs = $this->__Model-> get_row('SELECT * FROM '.$this->TENBANG.' WHERE `'.$this->TENKHOACHINH.'`='.$where);
+          $rs = $this->__Model-> get_row('SELECT * FROM '.$this->TENBANG.' WHERE `'.$this->TENKHOACHINH.'`="'.$where.'"');
           return $rs;
       }
   

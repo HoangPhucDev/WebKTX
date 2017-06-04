@@ -305,7 +305,7 @@ $Khu = $data->get_list("select * FROM `Khu`");
               </div>
               <div class="modal-body">
                 <div id="result">
-                    Nội dung ajax sẽ được load ở đây
+                    Đang Tải Dữ Liệu...Vui Lòng Đợi.
                 </div>
               </div>
               <div class="modal-footer">
@@ -325,7 +325,7 @@ $Khu = $data->get_list("select * FROM `Khu`");
               </div>
               <div class="modal-body">
                 <div id="resultThongBao">
-                    Nội dung ajax sẽ được load ở đây
+                    Đang Xác Nhận...Vui Lòng Đợi.
                 </div>
               </div>
               <div class="modal-footer">

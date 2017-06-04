@@ -55,8 +55,9 @@
                                                                             WHERE `TRANG_THAI_ND` = 2 AND 
                                                                             nguoi_dung.MA_PHONG ='.$row['MA_PHONG'])['COUNT(MA_ND)'];?></td>
                                         <td id="nutduyet_<?php echo $row['MA_ND'];?>">
-                                            <a href="xacnhan.php?duyet=<?php echo $row['EMAIL']?>">Duyệt</a> |
-                                            <a href="#" data-toggle="modal" data-target="#ThongBao" onclick="Duyet('<?php echo $row['MA_ND'];?>','0')">Không Duyệt</a> </td>
+                                            <a href="#" data-toggle="modal" data-target="#ThongBao" onclick="Duyet('<?php echo $row['MA_ND'];?>','1')">Duyệt</a> |
+                                            <a href="#" data-toggle="modal" data-target="#ThongBao" onclick="Duyet('<?php echo $row['MA_ND'];?>','0')">Không Duyệt</a>
+                                        </td>
                                     </tr>
                                     <?php
                                 }
@@ -84,7 +85,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="resultThongBao">
-                                    Nội dung ajax sẽ được load ở đây
+                                    Đang Gửi Mail...Vui Lòng Đợi.
                     </div>
                 </div>
                 <div class="modal-footer">
