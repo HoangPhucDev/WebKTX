@@ -63,7 +63,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="chitiettaisan.php"> Chi Tiết Tài Sản</a></li>
+            <li class="active"><a href="choduyet.php"> Chờ Duyệt</a></li>
           </ul>
            <ul class="treeview-menu">
             <li class="active"><a href="khuvuc.php">Khu Vực</a></li>

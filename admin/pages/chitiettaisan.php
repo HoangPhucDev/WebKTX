@@ -49,3 +49,6 @@
 </div>
 <!-- ./wrapper -->
 <?php include_once '../general/script.php';?>
+
+</body>
+</html>

@@ -24,8 +24,8 @@
       "info": true,
       "autoWidth": false,
         "language": {
-            "lengthMenu": "Hiện _MENU_ dòng trong mõi trang",
-            "zeroRecords": "Không tìm thếy dữ liệu yêu cầu",
+            "lengthMenu": "Hiển thị _MENU_ dòng trong mõi trang",
+            "zeroRecords": "Không tìm thấy dữ liệu yêu cầu",
             "info": "Trang thứ _PAGE_ trong _PAGES_ trang",
             "infoEmpty": "Dữ liệu không có sẵn",
             "infoFiltered": "(lọc từ _MAX_ dòng dữ liệu)",
@@ -40,6 +40,5 @@
     });
   });
 </script>
-</body>
-</html>
+
 

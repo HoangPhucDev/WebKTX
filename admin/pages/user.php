@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
+        Danh Sách Sinh Viên
       </h1>
     </section>
 
@@ -67,3 +67,6 @@
 </div>
 <!-- ./wrapper -->
 <?php include_once '../general/script.php';?>
+
+</body>
+</html>

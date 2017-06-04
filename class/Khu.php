@@ -34,9 +34,12 @@ class Khu
         $rs = $this->__Model->delete($this->TENBANG, $where);
         return $rs;
     }
-
     public function LayDanhSach(){
         $rs = $this->__Model->get_list('SELECT * FROM '.$this->TENBANG);
+        return $rs;
+    }
+    public function LayDanhSachCoDieuKien($where){
+        $rs = $this->__Model->get_list('SELECT * FROM '.$this->TENBANG.' '.$where);
         return $rs;
     }
     public function LayChiTietTin($where){
