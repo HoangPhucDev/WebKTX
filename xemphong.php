@@ -36,7 +36,7 @@ $Khu = $data->get_list("select * FROM `Khu`");
                         <div class="row">
                         <!--Bất đầu lập 1 phòng -->
                         <?php
-                            $Phong = $data->get_list("SELECT * FROM `phong` WHERE `MA_KHU`=".$valueKhu["MA_KHU"]);
+                            $Phong = $data->get_list("SELECT * FROM `phong` WHERE `TRANG_THAI_PHONG`>0 AND `MA_KHU`=".$valueKhu["MA_KHU"]);
                             foreach ($Phong as $valuePhong):
                         ?>
                         <?php 
@@ -45,7 +45,7 @@ $Khu = $data->get_list("select * FROM `Khu`");
                         $GioiTinhPhong = $valuePhong['GIOI_TINH_PHONG'];
                         $SucChua = $valuePhong['SUC_CHUA'];
                         $SVTrongPhong = $data->get_row("
-                            SELECT COUNT(MA_ND) FROM `nguoi_dung` WHERE `MA_PHONG`=".$MaPhong." AND `TRANG_THAI_ND`=1");
+                            SELECT COUNT(MA_ND) FROM `nguoi_dung` WHERE `MA_PHONG`=".$MaPhong." AND `TRANG_THAI_ND`>0");
                          ?>
                             <?php if($SucChua==$SVTrongPhong['COUNT(MA_ND)']): ?>
                             <!--Nếu phòng đầy -->
@@ -537,12 +537,24 @@ $Khu = $data->get_list("select * FROM `Khu`");
             '<strong><h4>DANH SÁCH SINH VIÊN</h3></strong>'+
             '<hr><table class="table"><thead><tr><th>Tên</th><th>MSSV</th><th>Trạng Thái</th></tr></thead><tbody>';
             $.each (result[1], function (key, item){
-                if(item['TRANG_THAI_ND']==0)
-                            {
-                                item['TRANG_THAI_ND'] = 'Chờ Xác Nhận';
-                            }else{
-                                item['TRANG_THAI_ND'] = 'Đang Thuê';
-                            }
+                switch (Number(item['TRANG_THAI_ND']))
+                {
+                    case 0 : {
+                        item['TRANG_THAI_ND'] = 'Không Thuê Phòng';
+                        break;
+                    }
+                    case 1 : {
+                        item['TRANG_THAI_ND'] = 'Chờ Xác Nhận';
+                        break;
+                    }
+                    case 2 : {
+                        item['TRANG_THAI_ND'] = 'Đang Thuê';
+                        break;
+                    }
+                    default : {
+                        item['TRANG_THAI_ND']='Không Thuê Phòng';
+                    }
+                }
              html +='<tr>'+
                 '<td>'+item['TEN_ND']+'</td>'+
                 '<td>'+item['MA_ND']+'</td>'+
@@ -558,10 +570,9 @@ $Khu = $data->get_list("select * FROM `Khu`");
         }
 
         function DangKy(_id){
-            var MaNguoiDung = <?php echo @session_start(); echo isset($_SESSION['username'])?'"'.$_SESSION['username'].'"':'"Not Login"'; ?>;
+            MaNguoiDung = <?php echo @session_start(); echo isset($_SESSION['username'])?'"'.$_SESSION['username'].'"':'"Not Login"'; ?>;
             if(MaNguoiDung!="Not Login")
             {
-            var someSession = 'Session["SessionName"].ToString()';
             $.ajax({
                     url : "DangKyPhong.php",
                     type : "post",
@@ -572,6 +583,7 @@ $Khu = $data->get_list("select * FROM `Khu`");
                     },
                     success : function (result){
                         $('#resultThongBao').html('<h4>'+result+'</h4>');
+                        setTimeout("location.reload(true);", 2000);
                     }
                     });
             }else{

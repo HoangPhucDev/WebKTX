@@ -20,14 +20,9 @@
                            <span><input type="text" name="ma_sinh_vien" id="ma_sinh_vien" size="20" maxlength="8" value="" style="margin-left: 10px;"></span>
                         </p>
                           <p>
-						      <td width="105" align="right">&nbsp;</td>
-						      <td>
-						      </td>
-						    </p>
-                          <p>
-    	                   <label style="margin-left: 20px;margin-bottom: 10px;">
-               	              <input type="radio" name="loaidangky" id="loaidangky" value="ZGFuZ2t5bW9p" checked="checked" style="margin-left: 100px;"> &nbsp; Diện đăng ký mới hoàn toàn <br>
-                           </lable>
+
+               	              <input type="radio" name="loaidangky" id="loaidangky" value="ZGFuZ2t5bW9p" checked="checked" style="margin-left: 100px;"/> &nbsp; Diện đăng ký mới hoàn toàn <br>
+
                          </p>
                    <table align="center" width = "100%" cellspacing="0px" style="border: 1px solid black;margin-top:10px;" cellpadding="3px;">
                       <tbody>
