@@ -1,21 +1,37 @@
 <?php   
   include_once 'Model.php';
+  include_once 'BaseClass.php';
   /**
   * 
   */
-  class NguoiDung extends Model
+  class NguoiDung extends Model implements BaseClass
   {
-    var $Model;
+    private $__Model;
     
     function __construct()
     {
-      $Model = new Model();
+      $__Model = new Model();
     }
 
-    public function insert($value='')
+    public function Them($data)
     {
-      # code...
+     $rs = $this->__Model->insert('nguoi_dung', $data);
+      return $rs;
     }
+    public function Sua($data, $where){
+
+    }
+    public function Xoa($where){
+
+    }
+
+    public function LayDanhSach(){
+
+    }
+    public function LayChiTietTin(){
+      
+    }
+  
   }
 
 ?>
