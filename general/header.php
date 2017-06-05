@@ -58,7 +58,6 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown">Cơ Sở Vật Chất</a>
                                 <ul class="dropdown-menu menumarchil">
                                     <li><a href="xemphong.php">Thông Tin Phòng</a></li>
-                                    <li><a href="chitietphong.php">Chi Tiết Phòng Ở</a></li>
                                 </ul>
                             </li>
                         </ul>

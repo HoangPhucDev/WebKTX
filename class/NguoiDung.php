@@ -31,7 +31,7 @@
           return $rs;
       }
       public function Xoa($where){
-          $rs = $this->__Model->delete($this->TENBANG, $where);
+          $rs = $this->__Model->remove($this->TENBANG, $where);
           return $rs;
       }
 

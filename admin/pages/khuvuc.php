@@ -19,6 +19,7 @@
                 <tr>
                   <th>Mã Khu</th>
                   <th>Tên Khu</th>
+                  <th colspan="2">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,8 @@
                 <tr>
                   <td><?php echo $row['MA_KHU'];?></td>
                   <td><?php echo $row['TEN_KHU'];?></td>
+                  <td><a href="../data/update/updateKhu.php?id=<?php echo $row['MA_KHU'];?>">Edit</a></td>
+                  <td><a href="../data/delete/deleteKhu.php?id=<?php echo $row['MA_KHU'];?>">Delete</a></td>                
                 </tr>
                 <?php 
                     }

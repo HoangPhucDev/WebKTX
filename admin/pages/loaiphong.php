@@ -20,6 +20,7 @@
                   <th>Mã Loại Phòng</th>
                   <th>Tên Loại Phòng</th>
                   <th>Giá Phòng</th>
+                  <th colspan="2">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,6 +34,8 @@
                   <td><?php echo $row['MA_LOAI'];?></td>
                   <td><?php echo $row['TEN_LOAI'];?></td>
                   <td><?php echo $row['GIA_PHONG'];?></td>
+                  <td><a href="../data/update/updateLoaiPhong.php?id=<?php echo $row['MA_LOAI'];?>">Edit</a></td>
+                  <td><a href="../data/delete/deleteLoaiPhong.php?id=<?php echo $row['MA_LOAI'];?>">Delete</a></td>
                 </tr>
                 <?php 
                     }
