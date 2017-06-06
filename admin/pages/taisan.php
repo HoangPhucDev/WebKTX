@@ -6,6 +6,7 @@
       <h1>
         Danh Sách Tài Sản
       </h1>
+        <a href="../data/insert/insertTaiSan.php" class="btn btn-success">Thêm Mới</a>
     </section>
 
     <!-- Main content -->
@@ -14,12 +15,14 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-body">
+
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Mã Tài Sản</th>
                   <th>Tên Tài Sản</th>
                   <th>Giá Trị Tài Sản</th>
+                    <th>Hành Động</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,8 +36,12 @@
                   <td><?php echo $row['MA_TAI_SAN'];?></td>
                   <td><?php echo $row['TEN_TAI_SAN'];?></td>
                   <td><?php echo $row['GIA_TRI_TS'];?></td>
+                    <td>
+                        <a href="../data/update/updateTaiSan.php?id=<?php echo $row['MA_TAI_SAN'];?>">Sửa</a> |
+                        <a href="../data/delete/deleteTaiSan.php?id=<?php echo $row['MA_TAI_SAN'];?>">Xóa</a>
+                    </td>
                 </tr>
-                <?php 
+                <?php
                     }
                 ?>
                 </tbody>
