@@ -26,6 +26,7 @@
                   <th>Giới Tính</th>
                   <th>Trạng Thái</th>
                   <th>Chức Vụ</th>
+                  <th colspan="2">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,8 @@
                   <td><?php echo $row['GIOI_TINH_ND'];?></td>
                   <td><?php echo $row['TRANG_THAI_ND'];?></td>
                   <td><?php echo $row['CHUC_VU'];?></td>
+                  <td><a href="../data/update/updateNguoiDung.php?id=<?php echo $row['MA_ND'];?>">Edit</a></td>
+                  <td><a href="../data/delete/deleteNguoiDung.php?id=<?php echo $row['MA_ND'];?>">Delete</a></td>
                 </tr>  
                 <?php 
                     }
