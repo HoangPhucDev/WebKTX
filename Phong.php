@@ -14,7 +14,7 @@ if(isset($_POST['id']))
 					GIOI_TINH_PHONG,
 					TRANG_THAI_PHONG,
 					loai_phong.GIA_PHONG
-			FROM `Phong`
+			FROM `phong`
 			INNER JOIN loai_phong,khu
 			where 	phong.MA_PHONG = '.$MaPhong.' and 
 					phong.MA_KHU = khu.MA_KHU and 
@@ -22,7 +22,6 @@ if(isset($_POST['id']))
     $Phong = $data->get_list($sql);
     $SVTrongPhong = $data->get_list('SELECT `MA_ND`,`TEN_ND`,`TRANG_THAI_ND` FROM `nguoi_dung` WHERE `TRANG_THAI_ND` >0 AND `MA_PHONG` = '.$MaPhong.' ORDER BY `nguoi_dung`.`TRANG_THAI_ND` DESC');
     $Phong[1] = $SVTrongPhong;
-    //print_r($Phong);
    	echo json_encode($Phong);
 
 }else
@@ -35,12 +34,12 @@ if(isset($_POST['id']))
 					GIOI_TINH_PHONG,
 					TRANG_THAI_PHONG,
 					loai_phong.GIA_PHONG
-			FROM `Phong`
+			FROM `phong`
 			INNER JOIN loai_phong,khu
 			where 	 
 					phong.MA_KHU = khu.MA_KHU and 
 					phong.MA_LOAI = loai_phong.MA_LOAI';
     $Phong = $data->get_list($sql);
-   	echo json_encode($Phong);
+   	echo 'Lổi';
 }
 ?>
