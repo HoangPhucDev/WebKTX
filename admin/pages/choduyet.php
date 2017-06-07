@@ -47,7 +47,7 @@
                                         <td><?php echo $row['TEN_ND'];?></td>
                                         <td><?php echo $row['EMAIL'];?></td>
                                         <td><?php echo $row['GIOI_TINH_ND']==0?'Nam':'Nữ'; ?></td>
-                                        <td><?php echo $row['TEN_PHONG'];?></td>
+                                        <td><a href="../data/detail/detailPhong.php?id=<?php echo $row['MA_PHONG'];?>"><?php echo $row['TEN_PHONG'];?></a></td>
                                         <td><?php echo $row['TEN_KHU'];?></td>
                                         <td><?php echo $row['GIOI_TINH_PHONG']==0?'Nam':'Nữ'; ?></td>
                                         <td><?php echo $row['TRANG_THAI_PHONG']==0?'Chưa Sử Dụng':'Đang Sử Dụng'; ?></td>

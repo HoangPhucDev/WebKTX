@@ -16,7 +16,7 @@ class Phong extends Model implements BaseClass
     function __construct()
     {
         $this->__Model = new Model();
-        $this->TENBANG = 'Phong';
+        $this->TENBANG = 'phong';
         $this->TENKHOACHINH = 'MA_PHONG';
     }
 
