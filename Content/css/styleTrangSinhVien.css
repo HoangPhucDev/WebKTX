@@ -20,7 +20,7 @@
 }
 .navbar-slide > ul > .open > a:hover {
     background: #6684d2;
-    background-color: none;
+    background-color: snow;
 }
 .navbar-slide .nav {
     width: 100%;
@@ -273,9 +273,10 @@
 }
 .notify-box {
     float: right;
+    margin-bottom: 30px;
 }
 .event-box {
-    margin-top: 10px;
+    margin: 10px 0px 10px 0px;
 }
 /* Ads */
 .ads {
@@ -458,14 +459,7 @@ a::after{
 .GhimNho{
     display: none;
 }
-.tamNhinSuMang{
-    background-image: url('../../Images/tamNhinVaSuMang.jpg');
-    border:solid 1px blue;
-    background-size:100% 100%;
-    background-repeat: no-repeat;
-    height:400px;
-    width: 100%;
-}
+
 /* STYLE RESPONSIVE */
 @media only screen and (max-width: 1169px) {
     .navbar-right {
@@ -498,7 +492,7 @@ a::after{
         background-size: 70px 70px;
     }
     #header-nav-sub div {
-        margin-top: 0px 3px;
+        margin: 0px 3px;
     }
     #header-nav-main {
         margin-top: 3px;
@@ -530,10 +524,12 @@ a::after{
     }
     .listbox {
         font-size: 13px;
+
     }
     .listbox-sidebar {
         width: 280px;
         float: right;
+        margin-top: 30px;
     }
     .listbox-main {
         width: 670px;
@@ -1281,7 +1277,6 @@ a::after{
     /* Main content */
     #maincontent {
         width: 1170px;
-        padding-bottom: 20px;
     }
     #maincontent-section2, #maincontent-section1 {
         margin-top: 20px;
@@ -1422,14 +1417,6 @@ a::after{
 }
     .GhimNho{
         display: none;
-    }
-    .tamNhinSuMang{
-        background-image: url('../../Images/tamNhinVaSuMang.jpg');
-        border:solid 1px blue;
-        background-size:100% 100%;
-        background-repeat: no-repeat;
-        height:400px;
-        width:100%;
     }
 }
 

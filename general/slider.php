@@ -3,54 +3,55 @@
     $data = new Model();   
     @session_start();
     $fullname = "";
-    $html = '<div class="listbox listbox-sidebar notify-box">
-                  <div class="listbox-title" style="background-color: #337ab7">
-                        <h4 style="width:100%">
-                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Đăng Nhập
-                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" style="float:right"></span>
-                        </h4>
-                </div>
-                    <div class="listbox-content" style="border-color: #337ab7;">
-    
-                            <form action="checklogin.php" method="post"><br>
-                                <input type="text" name="nguoidung" class="form-control" placeholder="MSSV" required="" autofocus="" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><br>
-                                <input type="password" name="matkhau" class="form-control" placeholder="Mật khẩu" required="" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"><br>
-                                <input type="checkbox" id="ghinho" name="matKhau">Ghi Nhớ
-                                <br>
-                                <br>
-                                <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Đăng Nhập">
-                                <br>
-                            </form>
-    
-                    </div>
-        </div>';
-   if (isset($_SESSION['username'])){
-       $row1 = $data->get_row('SELECT * FROM `nguoi_dung` WHERE `MA_ND`="'.$_SESSION['username'].'"');
+   if (isset($_SESSION['username'])) {
+       $row1 = $data->get_row('SELECT * FROM `nguoi_dung` WHERE `MA_ND`="' . $_SESSION['username'] . '"');
        $fullname = $row1['TEN_ND'];
-        $html = '<div class="listbox listbox-sidebar notify-box">
-                  <div class="listbox-title" style="background-color: #337ab7">
-                        <h4 style="width:100%">
-                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Thông Tin
-                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" style="float:right"></span>
-                        </h4>
-                </div>
-                    <div class="listbox-content" style="border-color: #337ab7;">
-    
-                            <form action="checklogin.php" method="post"><br>
-                                <label>Xin Chào</label>
-                                <p>'.$fullname.'</p>
-                                <br>
-                                <a href="logout.php" class="btn btn-lg btn-primary btn-block">Đăng Xuât</a>
-                                <br>
-                            </form>
-    
-                    </div>
-        </div>';
+       $chucnang = $_SESSION['chuc_vu'] > 0 ? '<a href="/admin" class="btn btn-lg btn-warning btn-block">Quản Lý</a>' : '<a href="#" class="btn btn-lg btn-warning btn-block">Trang Thông tin</a>';
    }
 ?>
+
+
 <div class="listbox listbox-sidebar news-box">
-           <?php echo $html;?>
-           <div class="listbox listbox-sidebar notify-box" style="margin-top: 30px;">
+            <div class="listbox listbox-sidebar notify-box">
+                <div class="listbox-title" style="background-color: #337ab7">
+                    <h4 style="width:100%">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Thông Tin
+                        <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" style="float:right"></span>
+                    </h4>
+                </div>
+                <div class="listbox-content" style="border-color: #337ab7;">
+                    <form action="checklogin.php" method="post" class="<?php echo isset($_SESSION['username'])?'hidden':''; ?>"><br>
+                        <input type="text" name="nguoidung" class="form-control" placeholder="MSSV"><br>
+                        <input type="password" name="matkhau" class="form-control" placeholder="Mật khẩu"><br>
+                        <input type="checkbox" id="ghinho" name="ghinho">Ghi Nhớ
+                        <br>
+                        <br>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Đăng Nhập">
+                        <br>
+                    </form>
+                    <div class="<?php echo isset($_SESSION['username'])?'':'hidden'; ?>">
+                        <label>Xin Chào</label>
+                        <p  class="text-danger text-bold"><?php echo $fullname ?></p>
+                        <br>
+                        <a href="logout.php" class="btn btn-lg btn-primary btn-block">Đăng Xuât</a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listbox listbox-sidebar event-box <?php echo isset($_SESSION['username'])?'':'hidden'; ?>">
+                <div class="listbox-title" style="background-color: #337ab7">
+                    <h4 style="width:100%">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Chức Năng
+                        <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" style="float:right"></span>
+                    </h4>
+                </div>
+                <div class="listbox-content" style="border-color: #337ab7;">
+
+                </div>
+            </div>
+
+           <div class="listbox listbox-sidebar event-box">
                 <div class="listbox-title" style="background-color: #5cb85c">
                     <a href="/TrangChu/TatCaTinTuc">
                         <h4 style="width:100%">
@@ -226,7 +227,7 @@
                     </div>
                 </div>
             </div>
-           <div class="listbox listbox-sidebar event-box" style="margin-top: 30px;">
+           <div class="listbox listbox-sidebar event-box">
                 <div class="listbox-title" style="background-color: #5bc0de">
                     <a href="/TrangChu/TatCaVanBan">
                         <h4 style="width:100%">
@@ -255,7 +256,7 @@
                 </div>
             </div>
              <div class="listbox listbox-sidebar event-box">
-                <div class="listbox-title" style="background-color: #5bc0de; margin-top: 20px;">
+                <div class="listbox-title" style="background-color: #5bc0de">
                     <a href="/TrangChu/TatCaBieuMau">
                         <h4 style="width:100%">
                             <span class="glyphicon glyphicon-file" aria-hidden="true"></span> BIỂU MẪU

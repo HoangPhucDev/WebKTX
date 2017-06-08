@@ -1,3 +1,8 @@
+<?php
+include_once 'CheckChucVu.php';
+CheckChucVu('../../');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
