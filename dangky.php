@@ -4,26 +4,8 @@
     <div class="listbox listbox-main news-box">
        <h1 style="text-align: center; color: red">Chào mừng quý vị và các bạn sinh viên đến với Ký túc xá
             thuộc trường Đại học Kỹ Thuật - Công Nghệ TP.Cần Thơ</h1>
-            <form method="post">
+            <div>
                <fieldset>
-                   <legend>Thông Tin Nhập</legend>
-                        <p>
-                           <label style="margin-left: 100px;">Mã Sinh Viên :</label>
-                           <span><input type="text" name="ma_sinh_vien" id="ma_sinh_vien" size="20" maxlength="8" value="" style="margin-left: 10px;"></span>
-                        </p>
-                        <p>
-                           <label style="margin-left: 152px;">Email :</label>
-                           <span><input type="text" name="ma_sinh_vien" id="ma_sinh_vien" size="20" maxlength="8" value="" style="margin-left: 10px;"></span>
-                        </p>
-                        <p>
-                           <label style="margin-left: 83px;">Xác Nhận Email :</label>
-                           <span><input type="text" name="ma_sinh_vien" id="ma_sinh_vien" size="20" maxlength="8" value="" style="margin-left: 10px;"></span>
-                        </p>
-                          <p>
-
-               	              <input type="radio" name="loaidangky" id="loaidangky" value="ZGFuZ2t5bW9p" checked="checked" style="margin-left: 100px;"/> &nbsp; Diện đăng ký mới hoàn toàn <br>
-
-                         </p>
                    <table align="center" width = "100%" cellspacing="0px" style="border: 1px solid black;margin-top:10px;" cellpadding="3px;">
                       <tbody>
                          <tr>
@@ -52,12 +34,50 @@
 				    </tr>
 				    <tr>
 				   	  <td align="center">
-				       	<input style="margin-top: 10px; padding: 8px;border-radius:5px;" type="submit" class="button" id="button" value="Đăng ký" onclick="return checkValidate();">
+				       	<input data-toggle="modal" data-target="#ThongBao"  style="margin-top: 10px; padding: 8px;border-radius:5px;" type="submit" class="button" id="button" value="Đăng ký" onclick="DangKy();">
 				   	  </td>
 				    </tr>
 				    </tbody></table>
                </fieldset>
-            </form>
-     </div>   
+            </div>
+        <div class="modal fade" id="ThongBao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Thông Báo</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="resultThongBao">
+                                        Đang Xác Nhận...Vui Lòng Đợi.
+                                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    <script>
+        function DangKy(){
+            MaNguoiDung = <?php @session_start(); echo isset($_SESSION['username'])?'"'.$_SESSION['username'].'"':'"Not Login"'; ?>;
+            if(MaNguoiDung!="Not Login")
+            {
+                $.ajax({
+                    url : "DangKyPhong.php?MSSV="+MaNguoiDung,
+                    type : "get",
+                    dataType:"text",
+                    data : {
+                    },
+                    success : function (result){
+                        $('#resultThongBao').html('<h4>'+result+'</h4>');
+                    }
+                });
+            }else{
+                $('#resultThongBao').html('<h4>Vui Lòng Đăng Nhập</h4>');
+            }
+        }
+    </script>
         <?php include 'general/slider.php';?>
         <?php include 'general/footer.php';?>

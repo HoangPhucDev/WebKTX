@@ -31,6 +31,12 @@
 		}
 	}else
 	{
-		echo 'Lổi';
+	    if(isset($_GET['MSSV']))
+        {
+            $dataupdate = array('MA_PHONG'=>'10','TRANG_THAI_ND'=>''.'1');
+            echo $data->update('nguoi_dung',$dataupdate,'`MA_ND` = "'.$_GET['MSSV'].'"')==1?'Đăng Ký Thành Công':'Đăng Ký Thất Bại';
+        }else {
+            echo 'Lổi';
+        }
 	}
  ?>

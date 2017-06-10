@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
@@ -24,10 +26,10 @@
   <header class="main-header">
     <!-- Logo -->
     <a href="" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>KTX</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>KTX</b> CTUET</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -47,12 +49,6 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="treeview">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </li>
         <li class="treeview active">
           <a href="#">
             <i class="fa fa-table"></i> <span>Quản Lý</span>
@@ -61,24 +57,42 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="../../pages/choduyet.php"> Chờ Duyệt</a></li>
+            <li ><a href="../../pages/choduyet.php"> Chờ Duyệt</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="../../pages/khuvuc.php">Khu Vực</a></li>
+            <li ><a href="../../pages/khuvuc.php">Khu Vực</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="../../pages/loaiphong.php">Loại Phòng</a></li>
+            <li ><a href="../../pages/loaiphong.php">Loại Phòng</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="../../pages/user.php">Người Dùng</a></li>
+            <li ><a href="../../pages/user.php">Người Dùng</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="../../pages/phong.php"> Phòng</a></li>
+            <li ><a href="../../pages/phong.php"> Phòng</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="../../pages/taisan.php"> Tài Sản</a></li>
+            <li ><a href="../../pages/taisan.php"> Tài Sản</a></li>
           </ul>
+            <ul class="treeview-menu">
+                <li ><a href="../../pages/tintuc.php"> Tin Tức</a></li>
+            </ul>
         </li>
+
+          <li class="treeview active">
+              <a href="#">
+                  <i class="fa fa-dashboard"></i> <span>Chức Năng</span>
+                  <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li ><a href="../../../index.php"> Quay Về Trang Chủ</a></li>
+              </ul>
+              <ul class="treeview-menu">
+                  <li ><a href="../../../logout.php"> Thoát</a></li>
+              </ul>
+          </li>
       </ul>
     </section>
     <!-- /.sidebar -->

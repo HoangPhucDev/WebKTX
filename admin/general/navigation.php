@@ -19,6 +19,7 @@ CheckChucVu('../../');
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -32,9 +33,9 @@ CheckChucVu('../../');
     <!-- Logo -->
     <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>KTX</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>KTX</b> CTUET</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -54,12 +55,6 @@ CheckChucVu('../../');
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="treeview">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </li>
         <li class="treeview active">
           <a href="#">
             <i class="fa fa-table"></i> <span>Quản Lý</span>
@@ -71,22 +66,42 @@ CheckChucVu('../../');
             <li class="active"><a href="choduyet.php"> Chờ Duyệt</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="khuvuc.php">Khu Vực</a></li>
+            <li ><a href="khuvuc.php"> Khu Vực</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="loaiphong.php">Loại Phòng</a></li>
+            <li ><a href="loaiphong.php"> Loại Phòng</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="user.php">Người Dùng</a></li>
+            <li ><a href="user.php"> Người Dùng</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="phong.php"> Phòng</a></li>
+            <li ><a href="phong.php"> Phòng</a></li>
           </ul>
            <ul class="treeview-menu">
-            <li class="active"><a href="taisan.php"> Tài Sản</a></li>
+            <li ><a href="taisan.php"> Tài Sản</a></li>
           </ul>
+            <ul class="treeview-menu">
+                <li ><a href="tintuc.php"> Tin Tức</a></li>
+            </ul>
         </li>
+
+          <li class="treeview active">
+              <a href="#">
+                  <i class="fa fa-dashboard"></i> <span>Chức Năng</span>
+                  <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li ><a href="../../index.php"> Quay Về Trang Chủ</a></li>
+              </ul>
+              <ul class="treeview-menu">
+                  <li ><a href="../../logout.php"> Thoát</a></li>
+              </ul>
+          </li>
       </ul>
+
+
     </section>
     <!-- /.sidebar -->
   </aside>

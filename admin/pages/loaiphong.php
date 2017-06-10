@@ -6,6 +6,7 @@
       <h1>
         Danh Sách Loại
       </h1>
+        <a href="../data/insert/insertLoaiPhong.php" class="btn btn-success">Thêm Mới</a>
     </section>
 
     <!-- Main content -->

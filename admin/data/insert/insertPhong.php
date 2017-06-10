@@ -3,6 +3,7 @@ include_once '../general/navigation.php';
 include_once '../../../class/Phong.php';
 include_once '../../../class/Khu.php';
 include_once '../../../class/Loai.php';
+include_once '../../../class/TaiSan.php';
 $TenPhong = isset($_POST['TEN_PHONG'])?$_POST['TEN_PHONG']:'';
 $MaKhu = isset($_POST['MA_KHU'])?$_POST['MA_KHU']:'';
 $MaLoai = isset($_POST['MA_LOAI'])?$_POST['MA_LOAI']:'';
@@ -11,8 +12,10 @@ $GioiTinh = isset($_POST['GIOI_TINH_PHONG'])?$_POST['GIOI_TINH_PHONG']:'';
 $TrangThai = isset($_POST['TRANG_THAI_PHONG'])?$_POST['TRANG_THAI_PHONG']:'';
 $ModelKhu = new Khu();
 $ModelLoai = new Loai();
+$ModelTaiSan = new TaiSan();
 $DSKhu = $ModelKhu->LayDanhSach();
 $DSLoai = $ModelLoai->LayDanhSach();
+$DSTaiSan = $ModelTaiSan->LayDanhSach();
 if(isset($_POST['ok'])) {
     if (!empty($TenPhong) && !empty($SucChua)) {
         $ModelPhong = new Phong();
@@ -106,6 +109,21 @@ if(isset($_POST['ok'])) {
                             </div>
 
                             <div class="form-group">
+                                <label for="TAI_SAN" class="col-sm-2 control-label">Tài Sản</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="TAI_SAN" name="TAI_SAN" multiple="true">
+                                        <?php
+                                        foreach ($DSTaiSan as $item )
+                                        {
+                                            echo '<option value='.$item['MA_TAI_SAN'].'>'.$item['TEN_TAI_SAN'].'-'.$item['GIA_TRI_TS'].'</option>';
+                                        }
+
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="GIOI_TINH_PHONG" class="col-sm-2 control-label">Giới Tính Phòng</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="GIOI_TINH_PHONG" name="GIOI_TINH_PHONG">
@@ -149,6 +167,11 @@ if(isset($_POST['ok'])) {
 </div>
 <!-- ./wrapper -->
 <?php include_once '../general/script.php';?>
-
+<script src="../../plugins/select2/select2.min.js"></script>
+<script>
+    $("#TAI_SAN").select2({
+        placeholder: "Danh Sách Tài Sản"
+    });
+</script>
 </body>
 </html>

@@ -273,7 +273,7 @@
 }
 .notify-box {
     float: right;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .event-box {
     margin: 10px 0px 10px 0px;
@@ -529,7 +529,7 @@ a::after{
     .listbox-sidebar {
         width: 280px;
         float: right;
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .listbox-main {
         width: 670px;

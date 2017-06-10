@@ -6,6 +6,7 @@
       <h1>
         Danh Sách Khu
       </h1>
+        <a href="../data/insert/insertKhu.php" class="btn btn-success">Thêm Mới</a>
     </section>
 
     <!-- Main content -->

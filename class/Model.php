@@ -1,7 +1,7 @@
 <?php
 class Model {
     // Biến lưu trữ kết nối
-    private $__conn;
+    public $__conn;
      
     // Hàm Kết Nối
     function connect()

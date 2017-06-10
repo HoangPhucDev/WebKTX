@@ -6,6 +6,7 @@
       <h1>
         Danh Sách Sinh Viên
       </h1>
+        <a href="../data/insert/insertNguoiDung.php" class="btn btn-success">Thêm Mới</a>
     </section>
 
     <!-- Main content -->
@@ -18,7 +19,6 @@
                 <thead>
                 <tr>
                   <th>Mã Người Dùng</th>
-                  <th>Mật Khẩu</th>
                   <th>Mã Phòng</th>
                   <th>Tên Người Dùng</th>
                   <th>Email</th>
@@ -26,7 +26,7 @@
                   <th>Giới Tính</th>
                   <th>Trạng Thái</th>
                   <th>Chức Vụ</th>
-                  <th colspan="2">Action</th>
+                  <th colspan="3">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,16 +38,33 @@
                 ?>
                 <tr>
                   <td><?php echo $row['MA_ND'];?></td>
-                  <td><?php echo $row['MAT_KHAU'];?></td>
                   <td><?php echo $row['MA_PHONG'];?></td>
                   <td><?php echo $row['TEN_ND'];?></td>
                   <td><?php echo $row['EMAIL'];?></td>
                   <td><?php echo $row['SDT'];?></td>
-                  <td><?php echo $row['GIOI_TINH_ND'];?></td>
-                  <td><?php echo $row['TRANG_THAI_ND'];?></td>
-                  <td><?php echo $row['CHUC_VU'];?></td>
-                  <td><a href="../data/update/updateNguoiDung.php?id=<?php echo $row['MA_ND'];?>">Edit</a></td>
-                  <td><a href="../data/delete/deleteNguoiDung.php?id=<?php echo $row['MA_ND'];?>">Delete</a></td>
+                  <td><?php echo $row['GIOI_TINH_ND']==0?'Nam':'Nữ';?></td>
+                  <td>
+                      <?php
+                      switch ($row['TRANG_THAI_ND']) {
+                          case 0:
+                              echo 'Chưa Thuê';
+                              break;
+                          case 1:
+                              echo 'Chờ Duyệt';
+                              break;
+                          case 2:
+                              echo 'Đang Thuê';
+                              break;
+                          default:
+                              echo 'Chưa Thuê';
+                      }
+                      ;
+                  ?>
+                  </td>
+                  <td><?php echo $row['CHUC_VU']==0?'Sinh Viên':'Quản Trị';?></td>
+                  <td><a href="../data/update/updateNguoiDung.php?id=<?php echo $row['MA_ND'];?>">Sửa</a></td>
+                  <td><a href="../data/delete/deleteNguoiDung.php?id=<?php echo $row['MA_ND'];?>">Xóa</a></td>
+                    <td><a href="../data/update/changePass.php?id=<?php echo $row['MA_ND'];?>">Đổi Mật Khẩu</a></td>
                 </tr>  
                 <?php 
                     }

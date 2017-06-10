@@ -12,6 +12,7 @@ include_once '../../class/NguoiDung.php';
         $NguoiDung = new NguoiDung();
         $MSSV = $_POST['MSVV'];
         $SV=$NguoiDung->LayChiTietTin(''.$MSSV);
+        //đc chấp nhận
         if($_POST['Loai']==1)
         {
            $rs = $NguoiDung->Sua(array('TRANG_THAI_ND'=>''.'2'),'MA_ND ="'.$MSSV .'"');
@@ -23,7 +24,9 @@ include_once '../../class/NguoiDung.php';
            {
                 echo 'Lổi 1';
            }
-        }else
+        }
+        //không chấp nhận
+        else
         {
             $rs =  $NguoiDung->Sua(array('TRANG_THAI_ND'=>''.'0'),'MA_ND ="'.$MSSV.'"');
             if($rs == 1)
@@ -44,7 +47,7 @@ include_once '../../class/NguoiDung.php';
     {
             $to = $mail;
             $subject  = 'Xác Nhận Đăng Ký KTX';
-            $headers  = 'From: nguyenhoangphuc1995@gmail.com' . "\r\n" .
+            $headers  = 'From: ktx@ctuet.edu.vn' . "\r\n" .
                         'MIME-Version: 1.0' . "\r\n" .
                         'Content-type: text/html; charset=utf-8';
             if(mail($to, '=?utf-8?B?'.base64_encode($subject).'?=', $message, $headers)){

@@ -443,7 +443,10 @@ $Khu = $data->get_list("select * FROM `khu`");
                 },
                 success : function (result){
                     $('#resultThongBao').html('<h4>'+result+'</h4>');
-                    setTimeout("location.reload(true);", 2000);
+                    if(result=="Đăng Ký Thành Công")
+                    {
+                        setTimeout("location.reload(true);", 2000);
+                    }
                 }
             });
         }else{

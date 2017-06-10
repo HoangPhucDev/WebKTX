@@ -7,8 +7,6 @@
     $arrNguoiDung = $data->LayChiTietTin($id);
     if (isset($_POST['submit'])){
           $manguoidung = isset($_POST['ma'])?$_POST['ma']:'';
-          $matkhau = isset($_POST['matkhau'])?$_POST['matkhau']:'';
-          $pass = md5($matkhau);
           $maphong = isset($_POST['maphong'])?$_POST['maphong']:'';
           $tennguoidung = isset($_POST['ten'])?$_POST['ten']:'';
           $email = isset($_POST['email'])?$_POST['email']:'';
@@ -16,7 +14,7 @@
           $gioitinh = isset($_POST['gioitinh'])?$_POST['gioitinh']:'';
           $trangthai = isset($_POST['trangthai'])?$_POST['trangthai']:'';
           $chucvu = isset($_POST['chucvu'])?$_POST['chucvu']:'';
-          $updateNguoiDung = $data->Sua(array('MA_ND' => $manguoidung,'MAT_KHAU' => $pass,'MA_PHONG' => $maphong,'TEN_ND' => $tennguoidung,'EMAIL' => $email,'SDT' => $sdt,'GIOI_TINH_ND' => $gioitinh,'TRANG_THAI_ND' => $trangthai,'CHUC_VU' => $chucvu),"`MA_ND` = '$id'");
+          $updateNguoiDung = $data->Sua(array('MA_ND' => $manguoidung,'MA_PHONG' => $maphong,'TEN_ND' => $tennguoidung,'EMAIL' => $email,'SDT' => $sdt,'GIOI_TINH_ND' => $gioitinh,'TRANG_THAI_ND' => $trangthai,'CHUC_VU' => $chucvu),"`MA_ND` = '$id'");
           if (isset($updateNguoiDung)){
               header("Location: ../../pages/user.php");
           }else {
@@ -60,18 +58,14 @@
                                          <span id="error-id" class="label-validate"></span></td></tr>
                                  <tr><td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Mã Người Dùng:</span></td>
-                                     <td class="update-td"><input style="width:300px" value="<?php echo $arrNguoiDung['MA_ND']?>" name="ma" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
-                                 </tr>
-                                 <tr><td class="update-td" style="width:150px;">
-                                         <span class="update-header-td">Mật Khẩu:</span></td>
-                                     <td class="update-td"><input style="width:300px" value="<?php echo $arrNguoiDung['MAT_KHAU']?>" name="matkhau" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
+                                     <td class="update-td"><input class="form-control"  style="width:300px" value="<?php echo $arrNguoiDung['MA_ND']?>" name="ma" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
                                  </tr>
                                  <tr>
                                      <td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Tên Phòng:</span>
                                      </td>
                                      <td>
-                                         <select name='maphong'>
+                                         <select name='maphong' class="form-control">
                                              <?php
                                              $phong = $phong->LayDanhSach();
                                              foreach ($phong as $arrPhong ){
@@ -84,41 +78,44 @@
                                  </tr>
                                  <tr><td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Tên Người Dùng:</span></td>
-                                     <td class="update-td"><input style="width:300px" value="<?php echo $arrNguoiDung['TEN_ND'];?>" name="ten" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
+                                     <td class="update-td"><input class="form-control" style="width:300px" value="<?php echo $arrNguoiDung['TEN_ND'];?>" name="ten" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
                                  </tr>
                                  <tr><td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Email:</span></td>
-                                     <td class="update-td"><input style="width:300px" value="<?php echo $arrNguoiDung['EMAIL']?>" name="email" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
+                                     <td class="update-td"><input class="form-control" style="width:300px" value="<?php echo $arrNguoiDung['EMAIL']?>" name="email" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
                                  </tr>
                                  <tr><td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Số Điện Thoại:</span></td>
-                                     <td class="update-td"><input style="width:300px" value="<?php echo $arrNguoiDung['SDT']?>" name="sdt" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
+                                     <td class="update-td"><input class="form-control" style="width:300px" value="<?php echo $arrNguoiDung['SDT']?>" name="sdt" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
                                  </tr>
                                  <tr><td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Giới Tính:</span></td>
                                      <td class="update-td">
-                                         <select name="gioitinh">
-                                             <?php
-                                             if ($arrNguoiDung['GIOI_TINH_ND'] == 1){?>
-                                                 <option selected="selected" value="1">Nam</option>
-                                                 <option value="0">Nữ</option>
-                                             <?php }else {?>
-                                                 <option  value="1">Nam</option>
-                                                 <option selected="selected" value="0">Nữ</option>
-                                             <?php }
-                                             ?>
-
-
+                                         <select class="form-control" name="gioitinh">
+                                             <option <?= $arrNguoiDung['GIOI_TINH_ND']==0?'selected="selected"':'';  ?> value="0">Nam</option>
+                                             <option <?= $arrNguoiDung['GIOI_TINH_ND']==1?'selected="selected"':'';  ?> value="1">Nữ</option>
                                          </select>
                                      </td>
                                  </tr>
                                  <tr><td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Trạng Thái:</span></td>
-                                     <td class="update-td"><input style="width:300px" value="<?php echo $arrNguoiDung['TRANG_THAI_ND'];?>" name="trangthai" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
+                                     <td class="update-td">
+                                     <select class="form-control" name="trangthai">
+                                             <option <?= $arrNguoiDung['TRANG_THAI_ND']==0?'selected="selected"':'';  ?> value="0">Chưa Thuê</option>
+                                             <option <?= $arrNguoiDung['TRANG_THAI_ND']==1?'selected="selected"':'';  ?> value="1">Chờ Duyệt</option>
+                                             <option <?= $arrNguoiDung['TRANG_THAI_ND']==2?'selected="selected"':'';  ?>  value="2">Đang Thuê</option>
+                                     </select>
+                                     </td>
+
                                  </tr>
                                  <tr><td class="update-td" style="width:150px;">
                                          <span class="update-header-td">Chức Vụ:</span></td>
-                                     <td class="update-td"><input style="width:300px" value="<?php echo $arrNguoiDung['CHUC_VU'];?>" name="chucvu" type="text" maxlength="255" id="txtname"><span id="error-name" class="label-validate"></span></td>
+                                     <td>
+                                     <select class="form-control" name="chucvu">
+                                         <option <?= $arrNguoiDung['CHUC_VU']==0?'selected="selected"':'';  ?> value="0">Sinh Viên</option>
+                                         <option <?= $arrNguoiDung['CHUC_VU']==1?'selected="selected"':'';  ?> value="1">Quản Trị</option>
+                                     </select>
+                                     </td>
                                  </tr>
                                  </tbody>
                              </table>
